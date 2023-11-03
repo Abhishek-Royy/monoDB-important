@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5vw;
+            font-family: "Poppins",sans-serif;
+        }
+        .box{
+            width: 50vw;
+            height: 30vw;
+            {{!-- background: #907777; --}}
+            display: flex;
+        }
+        .left{
+            width: 20vw;
+            height: 100%;
+            background-color: #badb23;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 40px 0 0 40px;
+        }
+        .right{
+            width: calc(100% - 20vw);
+            height: 100%;
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+        }
+        .right>form>h2{
+            text-align: center;
+        }
+        input{
+            width: 11vw;
+            padding: 0.5vw;
+            margin: 1vw;
+            border-radius: 3px;
+            border: none;
+        }
+        .right>form>.btn{
+            padding: 1vw;
+            width: 10vw;
+            margin: 1vw;
+            border-radius: 50px;
+            font-size: 16px;
+            border: none;
+            background-color: #0000ff;
+            color: #fff;
+            cursor: pointer;
+        }
+    .right>form>.btn:active{
+        scale: 0.9;
+    }
+    </style>
+    {{>navbar}}
+
+   <div class="main">
+        <div class="box">
+            <div class="left">
+                <h1>WellCome to the Registration From</h1>
+            </div>
+            <div class="right">
+                <form action="/register" method="post">
+                    <h2>Please enter Your Details</h2>
+                    <input type="text" placeholder="First Name *" name="firstname" required>
+                    <input type="text" placeholder="Last Name *" name="lastname" required>
+                    <input type="email" placeholder="abcd@gamil.com *" name="email" required>
+                    <input type="date" name="date" required>
+                    <input type="text" placeholder="Phone Number *" name="phone" required>
+                    <input type="number" placeholder="Your current age *" name="age" required>
+                    <input type="password" placeholder="Enter Password *" name="password" required >
+                    <input type="password" placeholder="Confirm Password *" name="cpassword" required>
+                     <input type="submit" class="btn" value="Register">
+                </form>
+            </div>
+        </div>
+   </div>
+    
+</body>
+</html>

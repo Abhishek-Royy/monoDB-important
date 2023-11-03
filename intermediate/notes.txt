@@ -1,0 +1,3 @@
+**  Case Insensetive word search in MongoDB =>
+        -> To do this work we need to use=> RegularExpression();
+        -> 

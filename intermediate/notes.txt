@@ -1,3 +1,14 @@
 **  Case Insensetive word search in MongoDB =>
         -> To do this work we need to use=> RegularExpression();
         -> 
+    app.get("/find",async(req,res)=>{
+        // RegExp <- it is a method,
+    let rd=new RegExp("jeoRaxy","i");   <- in the first "invited comma" we write the search element and "second invited comma" we ure "i". <= "i" means insensitive. it allow uppercase,lowercase both , if the meaning is same.
+    let data=await mongodb.find({username: rd});
+    res.send(data);
+});
+
+**
+   RegExp - has two more term ->
+        / we define how was the start (^)
+        / we define how was the end ($)

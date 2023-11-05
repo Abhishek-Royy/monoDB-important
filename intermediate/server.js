@@ -14,7 +14,7 @@ app.get("/create", async (req, res) => {
                 username: "alexAbhishek",
                 nickname: "Abhi",
                 description: "I am a MERN stack Developer, I am love to do Coding..",
-                category: ["js", "react", "C", "Java", "node", "express", "mongoDB"],
+                category: ["JS", "react", "C", "node", "express", "mongoDB"],
             },
             {
                 username: "jeoRaxy",
@@ -43,11 +43,37 @@ app.get("/create", async (req, res) => {
     }
 });
 
-app.get("/search",async (req,res)=>{
-    const data=new RegExp("Raxon",'i');
-    const findData=await mongodb.find({username:data});
-    res.send(findData);
-})
+app.get("/find", async (req, res) => {
+    let rd = new RegExp("^jeoraxy$", "i"); //the sign funda is tell in notes.
+    let data = await mongodb.findOne({ username: rd });
+    res.send(data);
+});
+
+app.get("/array", async (req, res) => {
+    let data = await mongodb.find({ category: { $all: ["Java", "Aws"] } });
+    res.send(data)
+});
+
+app.get("/exist", async (req, res) => {
+    let existingData = await mongodb.find({ category: { $exists: true } });
+    res.send(existingData);
+});
+
+
+    // ANY ELEMENT LENGTH CHECK FILTER
+app.get("/length", async (req, res) => {
+    let lenData = await mongodb.find({
+        $expr: {
+            $and: [
+                { $gte: [{ $strLenCP: "$nickname" }, 5] },
+                { lte: [{ $strLenCP: "nickname" }, 6] },
+            ]
+        }
+    });
+    res.send(lenData);
+});
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

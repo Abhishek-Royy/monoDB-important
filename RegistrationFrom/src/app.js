@@ -21,7 +21,9 @@ hbs.registerPartials(partial_path)
 
 // console.log(path.join(__dirname,"../public"))
 
-app.get("/index", (req, res) => {
+
+
+app.get("/", (req, res) => {
     res.render("index")
 });
 
@@ -99,5 +101,5 @@ app.post("/login", async (req, res) => {
 // createToken();
 
 app.listen(port, () => {
-    console.log(`Server is connected with ${port}`)
+    console.log(`Server is connected with http://localhost:${port}`)
 })

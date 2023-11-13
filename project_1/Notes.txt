@@ -1,0 +1,4 @@
+When we connect with database =>
+        always must use some methods ->
+                * try catch
+                * async await
